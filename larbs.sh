@@ -14,8 +14,8 @@ while getopts ":a:r:b:p:h" o; do case "${o}" in
 	*) printf "Invalid option: -%s\\n" "$OPTARG" && exit 1 ;;
 esac done
 
-[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/lukesmithxyz/voidrice.git"
-[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/LukeSmithxyz/LARBS/master/progs.csv"
+[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/noamzaks/voidrice.git"
+[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/noamzaks/LARBS/master/progs.csv"
 [ -z "$aurhelper" ] && aurhelper="yay"
 [ -z "$repobranch" ] && repobranch="master"
 
@@ -233,6 +233,15 @@ dbus-uuidgen > /var/lib/dbus/machine-id
 	# Enable left mouse button by tapping
 	Option "Tapping" "on"
 EndSection' > /etc/X11/xorg.conf.d/40-libinput.conf
+
+# Hebrew
+[ ! -f /etc/X11/xorg.conf.d/00-keyboard.conf ] && printf 'Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "us,il"
+        Option "XkbModel" "pc104"
+        Option "XkbOptions" "grp:win_space_toggle"
+EndSection' > /etc/X11/xorg.conf.d/00-keyboard.conf
 
 # Fix fluidsynth/pulseaudio issue.
 grep -q "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" /etc/conf.d/fluidsynth ||

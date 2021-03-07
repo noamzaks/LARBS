@@ -59,3 +59,8 @@ G,https://github.com/lukesmithxyz/st.git,"is my custom build of suckless's termi
 G,https://github.com/lukesmithxyz/dwm.git,"is the window manager."
 A,mutt-wizard-git,"is a light-weight terminal-based email system."
 ,slock,"allows you to lock your computer, and quickly unlock with your password."
+,pulseaudio-bluetooth,"enables audio playback with Bluetooth."
+A,xkb-switch,"allows you to use the current keyboard layout in scripts."
+,bluez-utils,"brings in the bluetoothctl CLI to control Bluetooth."
+A,pam-gnupg,"unlocks GnuPG keys on login."
+A,culmus,"brings in Hebrew fonts."
